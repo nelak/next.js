@@ -171,14 +171,14 @@ export default async function createCompiler (dir, { dev = false, quiet = false,
   }
 
   const rules = (dev ? [{
-    test: /\.js(\?[^?]*)?$/,
+    test: /\.(js|tsx?)(\?[^?]*)?$/,
     loader: 'hot-self-accept-loader',
     include: [
       join(dir, 'pages'),
       nextPagesDir
     ]
   }, {
-    test: /\.js(\?[^?]*)?$/,
+    test: /\.(js|tsx?)(\?[^?]*)?$/,
     loader: 'react-hot-loader/webpack',
     exclude: /node_modules/
   }] : [])
